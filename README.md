@@ -3,6 +3,7 @@
 [![Manufacturing-AI-Suite](https://img.shields.io/badge/Manufacturing%20AI%20Suite-3%20Samples-green)]()
 [![Retail-AI-Suite](https://img.shields.io/badge/Retail%20AI%20Suite-2%20Samples-green)]()
 
+
 # Spanda-Edge-AI-Suites
 
 ## Overview
