@@ -1,1 +1,0 @@
-../../../pipelines/act-sample/docs/imitation_learning_act.rst
