@@ -8,7 +8,7 @@ Launch the jupyter notebook from browser and run the notebook by following below
 ```bash
 # Assuming the repo is already cloned
 # 1. Install dependent python packages
-cd edge-ai-suites/manufacturing-ai-suite/wind-turbine-anomaly-detection/training
+cd edge-ai-suites/spanda-manufacturing-ai-suite/wind-turbine-anomaly-detection/training
 python3 -m venv ~/windturbine_venv
 source ~/windturbine_venv/bin/activate
 pip3 install -r requirements.txt
