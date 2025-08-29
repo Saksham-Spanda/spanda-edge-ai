@@ -53,19 +53,10 @@ To learn how to contribute to the project, see [CONTRIBUTING.md](CONTRIBUTING.md
 
 For support, submit your bug report and feature request to [Github Issues](https://github.com/open-edge-platform/edge-ai-suites/issues). 
 
-## License
-
-The **Edge AI Suites** project is licensed under the [APACHE 2.0](LICENSE), except for the following sample applications:
-
-| Sample Application | License |
-|:-------------------|:--------|
-|[Smart Intersection](metro-ai-suite/metro-vision-ai-app-recipe/smart-intersection) | [LIMITED EDGE SOFTWARE DISTRIBUTION LICENSE AGREEMENT](metro-ai-suite/metro-vision-ai-app-recipe/smart-intersection/LICENSE.txt) |
-|[Sensor Fusion For Traffic Management](metro-ai-suite/sensor-fusion-for-traffic-management) | [LIMITED EDGE SOFTWARE DISTRIBUTION LICENSE AGREEMENT](metro-ai-suite/sensor-fusion-for-traffic-management/LICENSE.txt) |
-|[Video Processing for NVR](metro-ai-suite/video-processing-for-nvr) | [LIMITED EDGE SOFTWARE DISTRIBUTION LICENSE AGREEMENT](metro-ai-suite/video-processing-for-nvr/LICENSE.txt) |
 
 ## Third-Party
 
-Applications in this repository which are based on third-party content are listed below:
+Applications in this repository that are based on third-party content are listed below:
 
 | Sample Application | Third-Party Application |
 |:-------------------|:------------------------|
