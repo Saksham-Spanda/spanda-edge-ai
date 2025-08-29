@@ -38,11 +38,11 @@ jobs:
 
     - name: Package Helm Chart
       run: |
-        cd edge-ai-suites-repo/metro-ai-suite/image-based-video-search/chart
+        cd edge-ai-suites-repo/spanda-metro-ai-suite/image-based-video-search/chart
         helm package . --version ${{ inputs.helm-chart-tag }} --app-version ${{ inputs.helm-chart-tag }}
     - name: Push to GHCR
       run: |
-        CHART_PACKAGE=$(ls edge-ai-suites-repo/metro-ai-suite/image-based-video-search/chart/*-${{ inputs.helm-chart-tag }}.tgz)
+        CHART_PACKAGE=$(ls edge-ai-suites-repo/spanda-metro-ai-suite/image-based-video-search/chart/*-${{ inputs.helm-chart-tag }}.tgz)
         helm push $CHART_PACKAGE oci://ghcr.io/${{ github.repository }}/metro-ai-suites/
         
     - name: Update Github Summary

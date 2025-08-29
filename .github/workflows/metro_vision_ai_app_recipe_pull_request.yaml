@@ -5,11 +5,11 @@ on:
     branches:
       - 'main'
     paths:
-      - 'metro-ai-suite/metro-vision-ai-app-recipe/**'
+      - 'spanda-metro-ai-suite/metro-vision-ai-app-recipe/**'
       
   pull_request:
     paths:
-      - 'metro-ai-suite/metro-vision-ai-app-recipe/**'
+      - 'spanda-metro-ai-suite/metro-vision-ai-app-recipe/**'
       
       
   workflow_call:
@@ -63,7 +63,7 @@ jobs:
 
       - name: Run ShellCheck
         run: |
-          cd edge-ai-suites-repo/metro-ai-suite/metro-vision-ai-app-recipe/
+          cd edge-ai-suites-repo/spanda-metro-ai-suite/metro-vision-ai-app-recipe/
           echo "Scanning for .sh files and running ShellCheck..."
           find . -type f -name "*.sh" | tee shell_files.txt | xargs -r shellcheck -f gcc > shellcheck_report.txt || true
           echo "### ShellCheck Results" >> $GITHUB_STEP_SUMMARY

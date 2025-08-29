@@ -38,7 +38,7 @@ jobs:
 
     - name: Package Helm Chart
       run: |
-        cd edge-ai-suites-repo/metro-ai-suite/metro-vision-ai-app-recipe
+        cd edge-ai-suites-repo/spanda-metro-ai-suite/metro-vision-ai-app-recipe
 
         # Packaging Smart Parking
         helm package ./smart-parking/helm-chart/ --version ${{ inputs.helm-chart-tag }} --app-version ${{ inputs.helm-chart-tag }}
@@ -49,22 +49,22 @@ jobs:
     - name: Push to GHCR
       run: |
         
-        for CHART_PACKAGE in edge-ai-suites-repo/metro-ai-suite/metro-vision-ai-app-recipe/*-${{ inputs.helm-chart-tag }}.tgz; do
-            helm push "$CHART_PACKAGE" oci://ghcr.io/${{ github.repository }}/metro-ai-suite-vision-helm-chart
+        for CHART_PACKAGE in spanda-edge-ai-suites-repo/metro-ai-suite/metro-vision-ai-app-recipe/*-${{ inputs.helm-chart-tag }}.tgz; do
+            helm push "$CHART_PACKAGE" oci://ghcr.io/${{ github.repository }}/spanda-metro-ai-suite-vision-helm-chart
         done
         
     - name: Update Github Summary
       run: |
-        echo "### ✅ metro-ai-suite-vision-helm-chart published to github container registry" >> $GITHUB_STEP_SUMMARY
+        echo "### ✅ spanda-metro-ai-suite-vision-helm-chart published to github container registry" >> $GITHUB_STEP_SUMMARY
         echo "- Registry: \`oci://ghcr.io/${{ github.repository }}\`" >> $GITHUB_STEP_SUMMARY
         echo "- Version: \`${{ inputs.helm-chart-tag }}\`" >> $GITHUB_STEP_SUMMARY
         echo "### Helm Pull Commands" >> $GITHUB_STEP_SUMMARY
-        for CHART_PACKAGE in edge-ai-suites-repo/metro-ai-suite/metro-vision-ai-app-recipe/*-${{ inputs.helm-chart-tag }}.tgz; do
+        for CHART_PACKAGE in edge-ai-suites-repo/spanda-metro-ai-suite/metro-vision-ai-app-recipe/*-${{ inputs.helm-chart-tag }}.tgz; do
             # Extract the chart name from the .tgz file
             CHART_NAME=$(basename "$CHART_PACKAGE" -${{ inputs.helm-chart-tag }}.tgz)
             # Append the pull command to GitHub summary
             echo '```bash' >> $GITHUB_STEP_SUMMARY
-            echo " \`helm pull oci://ghcr.io/${{ github.repository }}/metro-ai-suite-vision-helm-chart/$CHART_NAME --version ${{ inputs.helm-chart-tag }}\`" >> $GITHUB_STEP_SUMMARY
+            echo " \`helm pull oci://ghcr.io/${{ github.repository }}/spanda-metro-ai-suite-vision-helm-chart/$CHART_NAME --version ${{ inputs.helm-chart-tag }}\`" >> $GITHUB_STEP_SUMMARY
             echo '```' >> $GITHUB_STEP_SUMMARY
         done
         

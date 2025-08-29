@@ -7,26 +7,27 @@ on:
         description: 'Which target to build'
         type: choice
         options:
-        - all-documentation
-        - image-based-video-search
-        - loitering-detection
-        - pallet-defect-detection
-        - pcb-anomaly-detection
-        - robotics-ai-suite
-        - smart-parking
-        - smart-intersection
-        - weld-porosity
-        - wind-turbine-anomaly-detection
-        - worker-safety-gear-detection
+          - all-documentation
+          - image-based-video-search
+          - loitering-detection
+          - pallet-defect-detection
+          - pcb-anomaly-detection
+          - spanda-robotics-ai-suite
+          - smart-parking
+          - smart-intersection
+          - weld-porosity
+          - wind-turbine-anomaly-detection
+          - worker-safety-gear-detection
 
 permissions: {}
 
 jobs:
+
   build_image-based-video-search:
     permissions:
-      contents: read          # needed for actions/checkout
-      pull-requests: read     # needed for gh pr list
-      issues: write           # needed to post PR comment
+      contents: read # needed for actions/checkout
+      pull-requests: read # needed for gh pr list
+      issues: write # needed to post PR comment
     if: ${{ (github.event.inputs.target == 'image-based-video-search') || (github.event.inputs.target == 'all-documentation') }}
     uses: open-edge-platform/orch-ci/.github/workflows/publish-documentation.yml@8b0ae64836f0395b21ff9dd7d9438284e8e8beda
     secrets:
@@ -34,13 +35,13 @@ jobs:
       DOC_AWS_ACCESS_KEY_ID: ${{ secrets.DOC_AWS_ACCESS_KEY_ID }}
       DOC_AWS_SECRET_ACCESS_KEY: ${{ secrets.DOC_AWS_SECRET_ACCESS_KEY }}
     with:
-      docs_directory: metro-ai-suite/image-based-video-search
+      docs_directory: spanda-metro-ai-suite/image-based-video-search
 
   build_loitering-detection:
     permissions:
-      contents: read          # needed for actions/checkout
-      pull-requests: read     # needed for gh pr list
-      issues: write           # needed to post PR comment
+      contents: read # needed for actions/checkout
+      pull-requests: read # needed for gh pr list
+      issues: write # needed to post PR comment
     if: ${{ (github.event.inputs.target == 'loitering-detection') || (github.event.inputs.target == 'all-documentation') }}
     uses: open-edge-platform/orch-ci/.github/workflows/publish-documentation.yml@8b0ae64836f0395b21ff9dd7d9438284e8e8beda
     secrets:
@@ -48,14 +49,14 @@ jobs:
       DOC_AWS_ACCESS_KEY_ID: ${{ secrets.DOC_AWS_ACCESS_KEY_ID }}
       DOC_AWS_SECRET_ACCESS_KEY: ${{ secrets.DOC_AWS_SECRET_ACCESS_KEY }}
     with:
-      docs_directory: metro-ai-suite/metro-vision-ai-app-recipe/loitering-detection
-      branch_pattern: '(?!release-1\.0\.0)(^(main|release-.*)$)'  # Does not exist on release-1.0.0 branch - Exclude it
+      docs_directory: spanda-metro-ai-suite/metro-vision-ai-app-recipe/loitering-detection
+      branch_pattern: '(?!release-1\.0\.0)(^(main|release-.*)$)' # Does not exist on release-1.0.0 branch - Exclude it
 
   build_pallet-defect-detection:
     permissions:
-      contents: read          # needed for actions/checkout
-      pull-requests: read     # needed for gh pr list
-      issues: write           # needed to post PR comment
+      contents: read # needed for actions/checkout
+      pull-requests: read # needed for gh pr list
+      issues: write # needed to post PR comment
     if: ${{ (github.event.inputs.target == 'pallet-defect-detection') || (github.event.inputs.target == 'all-documentation') }}
     uses: open-edge-platform/orch-ci/.github/workflows/publish-documentation.yml@8b0ae64836f0395b21ff9dd7d9438284e8e8beda
     secrets:
@@ -63,14 +64,14 @@ jobs:
       DOC_AWS_ACCESS_KEY_ID: ${{ secrets.DOC_AWS_ACCESS_KEY_ID }}
       DOC_AWS_SECRET_ACCESS_KEY: ${{ secrets.DOC_AWS_SECRET_ACCESS_KEY }}
     with:
-      docs_directory: manufacturing-ai-suite/industrial-edge-insights-vision/apps/pallet-defect-detection
-      branch_pattern: '(?!release-1\.0\.0)(^(main|release-.*)$)'  # Does not exist on release-1.0.0 branch - Exclude it
+      docs_directory: spanda-manufacturing-ai-suite/industrial-edge-insights-vision/apps/pallet-defect-detection
+      branch_pattern: '(?!release-1\.0\.0)(^(main|release-.*)$)' # Does not exist on release-1.0.0 branch - Exclude it
 
   build_pcb-anomaly-detection:
     permissions:
-      contents: read          # needed for actions/checkout
-      pull-requests: read     # needed for gh pr list
-      issues: write           # needed to post PR comment
+      contents: read # needed for actions/checkout
+      pull-requests: read # needed for gh pr list
+      issues: write # needed to post PR comment
     if: ${{ (github.event.inputs.target == 'pcb-anomaly-detection') || (github.event.inputs.target == 'all-documentation') }}
     uses: open-edge-platform/orch-ci/.github/workflows/publish-documentation.yml@8b0ae64836f0395b21ff9dd7d9438284e8e8beda
     secrets:
@@ -78,30 +79,30 @@ jobs:
       DOC_AWS_ACCESS_KEY_ID: ${{ secrets.DOC_AWS_ACCESS_KEY_ID }}
       DOC_AWS_SECRET_ACCESS_KEY: ${{ secrets.DOC_AWS_SECRET_ACCESS_KEY }}
     with:
-      docs_directory: manufacturing-ai-suite/industrial-edge-insights-vision/apps/pcb-anomaly-detection
-      branch_pattern: '(?!release-1\.0\.0)(^(main|release-.*)$)'  # Does not exist on release-1.0.0 branch - Exclude it
+      docs_directory: spanda-manufacturing-ai-suite/industrial-edge-insights-vision/apps/pcb-anomaly-detection
+      branch_pattern: '(?!release-1\.0\.0)(^(main|release-.*)$)' # Does not exist on release-1.0.0 branch - Exclude it
 
   build_robotics-ai-suite:
     permissions:
-      contents: read          # needed for actions/checkout
-      pull-requests: read     # needed for gh pr list
-      issues: write           # needed to post PR comment
-    if: ${{ (github.event.inputs.target == 'robotics-ai-suite') || (github.event.inputs.target == 'all-documentation') }}
+      contents: read # needed for actions/checkout
+      pull-requests: read # needed for gh pr list
+      issues: write # needed to post PR comment
+    if: ${{ (github.event.inputs.target == 'spanda-robotics-ai-suite') || (github.event.inputs.target == 'all-documentation') }}
     uses: open-edge-platform/orch-ci/.github/workflows/publish-documentation.yml@8b0ae64836f0395b21ff9dd7d9438284e8e8beda
     secrets:
       SYS_ORCH_GITHUB: ${{ secrets.SYS_ORCH_GITHUB }}
       DOC_AWS_ACCESS_KEY_ID: ${{ secrets.DOC_AWS_ACCESS_KEY_ID }}
       DOC_AWS_SECRET_ACCESS_KEY: ${{ secrets.DOC_AWS_SECRET_ACCESS_KEY }}
     with:
-      docs_directory: robotics-ai-suite
+      docs_directory: spanda-robotics-ai-suite
       simple_mode: false
-      branch_pattern: '(?!release-1\.0\.0)(^(main|release-.*)$)'  # Does not exist on release-1.0.0 branch - Exclude it
+      branch_pattern: '(?!release-1\.0\.0)(^(main|release-.*)$)' # Does not exist on release-1.0.0 branch - Exclude it
 
   build_smart-intersection:
     permissions:
-      contents: read          # needed for actions/checkout
-      pull-requests: read     # needed for gh pr list
-      issues: write           # needed to post PR comment
+      contents: read # needed for actions/checkout
+      pull-requests: read # needed for gh pr list
+      issues: write # needed to post PR comment
     if: ${{ (github.event.inputs.target == 'smart-intersection') || (github.event.inputs.target == 'all-documentation') }}
     uses: open-edge-platform/orch-ci/.github/workflows/publish-documentation.yml@8b0ae64836f0395b21ff9dd7d9438284e8e8beda
     secrets:
@@ -109,14 +110,14 @@ jobs:
       DOC_AWS_ACCESS_KEY_ID: ${{ secrets.DOC_AWS_ACCESS_KEY_ID }}
       DOC_AWS_SECRET_ACCESS_KEY: ${{ secrets.DOC_AWS_SECRET_ACCESS_KEY }}
     with:
-      docs_directory: metro-ai-suite/metro-vision-ai-app-recipe/smart-intersection
-      branch_pattern: '(?!release-1\.0\.0)(^(main|release-.*)$)'  # Does not exist on release-1.0.0 branch - Exclude it
-  
+      docs_directory: spanda-metro-ai-suite/metro-vision-ai-app-recipe/smart-intersection
+      branch_pattern: '(?!release-1\.0\.0)(^(main|release-.*)$)' # Does not exist on release-1.0.0 branch - Exclude it
+
   build_smart-parking:
     permissions:
-      contents: read          # needed for actions/checkout
-      pull-requests: read     # needed for gh pr list
-      issues: write           # needed to post PR comment
+      contents: read # needed for actions/checkout
+      pull-requests: read # needed for gh pr list
+      issues: write # needed to post PR comment
     if: ${{ (github.event.inputs.target == 'smart-parking') || (github.event.inputs.target == 'all-documentation') }}
     uses: open-edge-platform/orch-ci/.github/workflows/publish-documentation.yml@8b0ae64836f0395b21ff9dd7d9438284e8e8beda
     secrets:
@@ -124,14 +125,14 @@ jobs:
       DOC_AWS_ACCESS_KEY_ID: ${{ secrets.DOC_AWS_ACCESS_KEY_ID }}
       DOC_AWS_SECRET_ACCESS_KEY: ${{ secrets.DOC_AWS_SECRET_ACCESS_KEY }}
     with:
-      docs_directory: metro-ai-suite/metro-vision-ai-app-recipe/smart-parking
-      branch_pattern: '(?!release-1\.0\.0)(^(main|release-.*)$)'  # Does not exist on release-1.0.0 branch - Exclude it
+      docs_directory: spanda-metro-ai-suite/metro-vision-ai-app-recipe/smart-parking
+      branch_pattern: '(?!release-1\.0\.0)(^(main|release-.*)$)' # Does not exist on release-1.0.0 branch - Exclude it
 
   build_weld-porosity:
     permissions:
-      contents: read          # needed for actions/checkout
-      pull-requests: read     # needed for gh pr list
-      issues: write           # needed to post PR comment
+      contents: read # needed for actions/checkout
+      pull-requests: read # needed for gh pr list
+      issues: write # needed to post PR comment
     if: ${{ (github.event.inputs.target == 'weld-porosity') || (github.event.inputs.target == 'all-documentation') }}
     uses: open-edge-platform/orch-ci/.github/workflows/publish-documentation.yml@8b0ae64836f0395b21ff9dd7d9438284e8e8beda
     secrets:
@@ -139,14 +140,14 @@ jobs:
       DOC_AWS_ACCESS_KEY_ID: ${{ secrets.DOC_AWS_ACCESS_KEY_ID }}
       DOC_AWS_SECRET_ACCESS_KEY: ${{ secrets.DOC_AWS_SECRET_ACCESS_KEY }}
     with:
-      docs_directory: manufacturing-ai-suite/industrial-edge-insights-vision/apps/weld-porosity
-      branch_pattern: '(?!release-1\.0\.0)(^(main|release-.*)$)'  # Does not exist on release-1.0.0 branch - Exclude it
+      docs_directory: spanda-manufacturing-ai-suite/industrial-edge-insights-vision/apps/weld-porosity
+      branch_pattern: '(?!release-1\.0\.0)(^(main|release-.*)$)' # Does not exist on release-1.0.0 branch - Exclude it
 
   build_wind-turbine-anomaly-detection:
     permissions:
-      contents: read          # needed for actions/checkout
-      pull-requests: read     # needed for gh pr list
-      issues: write           # needed to post PR comment
+      contents: read # needed for actions/checkout
+      pull-requests: read # needed for gh pr list
+      issues: write # needed to post PR comment
     if: ${{ (github.event.inputs.target == 'wind-turbine-anomaly-detection') || (github.event.inputs.target == 'all-documentation') }}
     uses: open-edge-platform/orch-ci/.github/workflows/publish-documentation.yml@8b0ae64836f0395b21ff9dd7d9438284e8e8beda
     secrets:
@@ -154,14 +155,14 @@ jobs:
       DOC_AWS_ACCESS_KEY_ID: ${{ secrets.DOC_AWS_ACCESS_KEY_ID }}
       DOC_AWS_SECRET_ACCESS_KEY: ${{ secrets.DOC_AWS_SECRET_ACCESS_KEY }}
     with:
-      docs_directory: manufacturing-ai-suite/wind-turbine-anomaly-detection
-      branch_pattern: '(?!release-1\.0\.0)(^(main|release-.*)$)'  # Does not exist on release-1.0.0 branch - Exclude it
+      docs_directory: spanda-manufacturing-ai-suite/wind-turbine-anomaly-detection
+      branch_pattern: '(?!release-1\.0\.0)(^(main|release-.*)$)' # Does not exist on release-1.0.0 branch - Exclude it
 
   build_worker-safety-gear-detection:
     permissions:
-      contents: read          # needed for actions/checkout
-      pull-requests: read     # needed for gh pr list
-      issues: write           # needed to post PR comment
+      contents: read # needed for actions/checkout
+      pull-requests: read # needed for gh pr list
+      issues: write # needed to post PR comment
     if: ${{ (github.event.inputs.target == 'worker-safety-gear-detection') || (github.event.inputs.target == 'all-documentation') }}
     uses: open-edge-platform/orch-ci/.github/workflows/publish-documentation.yml@8b0ae64836f0395b21ff9dd7d9438284e8e8beda
     secrets:
@@ -169,5 +170,5 @@ jobs:
       DOC_AWS_ACCESS_KEY_ID: ${{ secrets.DOC_AWS_ACCESS_KEY_ID }}
       DOC_AWS_SECRET_ACCESS_KEY: ${{ secrets.DOC_AWS_SECRET_ACCESS_KEY }}
     with:
-      docs_directory: manufacturing-ai-suite/industrial-edge-insights-vision/apps/worker-safety-gear-detection
-      branch_pattern: '(?!release-1\.0\.0)(^(main|release-.*)$)'  # Does not exist on release-1.0.0 branch - Exclude it
+      docs_directory: spanda-manufacturing-ai-suite/industrial-edge-insights-vision/apps/worker-safety-gear-detection
+      branch_pattern: '(?!release-1\.0\.0)(^(main|release-.*)$)' # Does not exist on release-1.0.0 branch - Exclude it
